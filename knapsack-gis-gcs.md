@@ -126,25 +126,14 @@ inf = 100
 min_end = [-inf] + [inf] * n
 for i in range(n):
     for j in range(n):
-        if min_end[j - 1] < a[i] < =min_end[j]:
+        if min_end[j - 1] < a[i] <= min_end[j]:
             min_end[j] = a[i]
-print(dp)
+print(min_end)
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-1-930ff2a8d8b0> in <module>()
-          7         if min_end[j - 1] < a[i] < min_end[j]:
-          8             min_end[j] = a[i]
-    ----> 9 print(dp)
+```
+[-100, 1, 2, 4, 100, 100, 100]
+```
     
-
-    NameError: name 'dp' is not defined
-
-
 Ответом будет максимальный такой индекс $j$, что $min\_end[j] \neq 0$. Это решение работает за $O(n^2)$.
 
 Его можно значительно ускорить, заметив два факта:
